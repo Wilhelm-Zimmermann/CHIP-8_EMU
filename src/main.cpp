@@ -63,14 +63,19 @@ int main(int argc, char *argv[])
             }
         }
 
-        chip8.Cycle();
+        for (int i = 0; i < 10; ++i)
+        {
+            chip8.Cycle();
+        }
+
+        chip8.UpdateTimers();
 
         SDL_UpdateTexture(texture, nullptr, chip8.video, 64 * sizeof(uint32_t));
         SDL_RenderClear(renderer);
         SDL_RenderCopy(renderer, texture, nullptr, nullptr);
         SDL_RenderPresent(renderer);
 
-        SDL_Delay(2);
+        SDL_Delay(16);
     }
 
     SDL_DestroyTexture(texture);

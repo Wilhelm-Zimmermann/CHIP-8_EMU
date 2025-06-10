@@ -10,6 +10,7 @@ public:
     Chip8();
     void LoadROM(const std::string &filename);
     void Cycle();
+    void UpdateTimers();
 
     uint32_t video[64 * 32]{};
     uint8_t keypad[16]{};
